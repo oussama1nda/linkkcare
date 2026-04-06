@@ -1,0 +1,631 @@
+/* ===========================
+   RESET & BASE
+=========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+}
+
+/* ===========================
+   SCENE & PHONE FRAME
+=========================== */
+.scene {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem 3rem;
+  min-height: 100vh;
+}
+
+.phone {
+  width: 390px;
+  height: 844px;
+  background: #0a0a0f;
+  border-radius: 54px;
+  padding: 14px;
+  box-shadow:
+    0 0 0 1px #2a2a3a,
+    0 40px 80px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px #1a1a2e;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 42px;
+  overflow: hidden;
+  background: #f7f8fc;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ===========================
+   DYNAMIC ISLAND
+=========================== */
+.di {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 118px;
+  height: 34px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 30;
+}
+
+/* ===========================
+   STATUS BAR
+=========================== */
+.sb {
+  background: #07010f;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+  letter-spacing: 0.2px;
+}
+
+.sb-icons {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.hdr {
+  background: #07010f;
+  padding: 0 22px 24px;
+  flex-shrink: 0;
+}
+
+.hdr-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box {
+  width: 36px;
+  height: 36px;
+  background: #1a6ef5;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.app-name span {
+  color: #4fa3ff;
+}
+
+.notif-btn {
+  width: 36px;
+  height: 36px;
+  background: #181828;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.notif-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff4d6d;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: 1.5px solid #07010f;
+}
+
+.greeting {
+  color: #8888aa;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.greeting-name {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin-bottom: 18px;
+}
+
+/* ===========================
+   STATS ROW
+=========================== */
+.stats-row {
+  display: flex;
+  gap: 10px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #12122a;
+  border-radius: 16px;
+  padding: 14px;
+  border: 0.5px solid #1e1e3a;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #5555aa;
+  font-weight: 500;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-val {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat-val.blue  { color: #4fa3ff; }
+.stat-val.green { color: #4ade80; }
+.stat-val.amber { color: #fbbf24; }
+
+.stat-sub {
+  font-size: 10px;
+  color: #5555aa;
+  margin-top: 2px;
+}
+
+/* ===========================
+   CONTENT AREA
+=========================== */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 16px 0;
+  scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.sec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sec-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0d0d1a;
+}
+
+.sec-link {
+  font-size: 12px;
+  color: #1a6ef5;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===========================
+   MEDICINE CARDS
+=========================== */
+.med-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 10px;
+  border: 0.5px solid #eaeaf5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.15s, opacity 0.22s;
+}
+
+.med-card:active {
+  transform: scale(0.98);
+}
+
+.med-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ic-blue   { background: #eff6ff; }
+.ic-purple { background: #f5f3ff; }
+.ic-green  { background: #f0fdf4; }
+.ic-amber  { background: #fffbeb; }
+
+.med-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.med-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0d0d1a;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.med-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.med-dose {
+  font-size: 11px;
+  background: #f0f4ff;
+  color: #1a4ef5;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.med-freq {
+  font-size: 11px;
+  color: #8888aa;
+  font-weight: 500;
+}
+
+.med-note {
+  font-size: 11px;
+  color: #8888aa;
+  margin-top: 3px;
+}
+
+.med-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.med-time {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0d0d1a;
+}
+
+.med-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.med-taken {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1.5px solid #e2e8f0;
+}
+
+.med-taken.done {
+  background: #4ade80;
+  border-color: #4ade80;
+}
+
+.med-taken.pending {
+  background: #f7f8fc;
+  border-color: #d1d5db;
+}
+
+.del-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff5f5;
+  border: 0.5px solid #fecaca;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.del-btn:hover {
+  background: #fee2e2;
+}
+
+/* ===========================
+   EMPTY STATE
+=========================== */
+.empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8888aa;
+}
+
+.empty-ico {
+  width: 56px;
+  height: 56px;
+  background: #f0f2f8;
+  border-radius: 18px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4444aa;
+  margin-bottom: 4px;
+}
+
+.empty-sub {
+  font-size: 12px;
+}
+
+/* ===========================
+   ADD BUTTON (FAB)
+=========================== */
+.add-fab {
+  margin: 12px 16px 16px;
+  background: #1a6ef5;
+  color: #fff;
+  border: none;
+  padding: 16px;
+  border-radius: 18px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  letter-spacing: -0.2px;
+  transition: opacity 0.2s;
+  font-family: inherit;
+}
+
+.add-fab:hover {
+  opacity: 0.9;
+}
+
+.fab-plus {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* ===========================
+   MODAL OVERLAY & SHEET
+=========================== */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 1, 15, 0.7);
+  border-radius: 42px;
+  display: none;
+  align-items: flex-end;
+  z-index: 20;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.sheet {
+  background: #fff;
+  border-radius: 28px 28px 0 0;
+  padding: 12px 20px 28px;
+  width: 100%;
+  max-height: 85%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  animation: slideUp 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sheet::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.handle {
+  width: 40px;
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  margin: 0 auto 18px;
+}
+
+.sheet-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0d0d1a;
+  margin-bottom: 6px;
+}
+
+.sheet-sub {
+  font-size: 13px;
+  color: #8888aa;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   FORM ELEMENTS
+=========================== */
+.fg {
+  margin-bottom: 14px;
+}
+
+.fl {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4444aa;
+  margin-bottom: 6px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.fi {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #eaeaf5;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #fafafe;
+  color: #0d0d1a;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  font-family: inherit;
+}
+
+.fi:focus {
+  border-color: #1a6ef5;
+  background: #f0f6ff;
+}
+
+.fi-row {
+  display: flex;
+  gap: 10px;
+}
+
+.fi-row .fg {
+  flex: 1;
+}
+
+.sheet-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.bs {
+  flex: 1;
+  background: #1a6ef5;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+
+.bs:hover {
+  opacity: 0.9;
+}
+
+.bc {
+  flex: 1;
+  background: #f0f2f8;
+  color: #4444aa;
+  border: none;
+  padding: 15px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.bc:hover {
+  background: #e4e6f0;
+}
+
+/* ===========================
+   TOAST NOTIFICATION
+=========================== */
+.toast-bar {
+  position: absolute;
+  bottom: 90px;
+  left: 16px;
+  right: 16px;
+  background: #0d0d1a;
+  color: #fff;
+  padding: 13px 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 25;
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-bar.show {
+  display: flex;
+  animation: fadeUp 0.3s ease;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.toast-icon {
+  width: 28px;
+  height: 28px;
+  background: #4ade80;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
